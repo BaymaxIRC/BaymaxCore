@@ -11,9 +11,6 @@ public class MainListener extends ListenerAdapter {
 
 	@Override
 	public void onGenericMessage(GenericMessageEvent event) {
-//		if (CommandHandler.isCommand(event.getMessage())) {
-//			event.respond("Hi! That was a command!");
-//		}
 		Manager.tryHandleCommand(event);
 	}
 

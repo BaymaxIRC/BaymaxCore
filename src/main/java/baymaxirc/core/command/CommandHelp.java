@@ -19,8 +19,6 @@ public class CommandHelp implements ICommand {
 
 	@Override
 	public void execute(ArrayList<String> args, GenericMessageEvent event) {
-
-//		System.out.println(args.get(0));
 		if (args.size() < 1) {
 			event.respond("You have not provided a command to retrieve help on.");
 		} else if (Manager.isCommand("?" + args.get(0))) {

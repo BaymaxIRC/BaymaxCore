@@ -23,7 +23,7 @@ public class Manager {
 			args.remove(0);
 			getCommand(event).execute(args, event);
 		} else {
-//			event.respond(String.format("%s is not a command.", MiscUtils.getCommandFromString(event.getMessage())));
+			event.respond(String.format("%s is not a command.", MiscUtils.getCommandFromString(event.getMessage())));
 		}
 	}
 
