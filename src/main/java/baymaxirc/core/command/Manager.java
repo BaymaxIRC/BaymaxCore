@@ -12,6 +12,10 @@ public class Manager {
 
 	private static Map<String, ICommand> commands = new HashMap<>();
 
+	public static void registerCommand(ICommand cmd) {
+		commands.put(cmd.getCommandName(), cmd);
+	}
+
 	public static void tryHandleCommand(GenericMessageEvent event) {
 		ICommand command = getCommand(event);
 		if (command != null) {
@@ -47,9 +51,9 @@ public class Manager {
 
 	public static void init() {
 //		Register all the commands!
-		commands.put(CommandHelp.instance.getCommandName(), CommandHelp.instance);
-		commands.put(CommandListAllCommands.instance.getCommandName(), CommandListAllCommands.instance);
-		commands.put(CommandVersion.instance.getCommandName(), CommandVersion.instance);
+		registerCommand(CommandHelp.instance);
+		registerCommand(CommandListAllCommands.instance);
+		registerCommand(CommandVersion.instance);
 	}
 
 }
