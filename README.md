@@ -1,0 +1,2 @@
+# BaymaxCore
+BaymaxCore is the required core module for the Baymax IRC bot/framework. Core provides the framework for defining modules as well as common code (e.g. configuration) used throughout Baymax modules.
