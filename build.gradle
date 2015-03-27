@@ -18,6 +18,17 @@ dependencies {
 jar {
 	manifest {
 		attributes	'Implementation-Title': archivesBaseName,
-					'Implementation-Version': version
+					'Implementation-Version': version,
+					'Main-Class': 'baymaxirc.core.Start'
+	}
+}
+
+artifacts {
+	archives jar
+}
+
+uploadArchives {
+	repositories.mavenDeployer {
+		repository(url: "file:///maven/")
 	}
 }
