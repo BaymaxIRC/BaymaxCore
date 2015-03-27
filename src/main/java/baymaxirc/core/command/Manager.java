@@ -1,5 +1,6 @@
 package baymaxirc.core.command;
 
+import baymaxirc.core.api.command.ICommand;
 import baymaxirc.core.util.MiscUtils;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
@@ -12,8 +13,12 @@ public class Manager {
 
 	private static Map<String, ICommand> commands = new HashMap<>();
 
+	public static void registerCommand(String name, ICommand cmd) {
+		commands.put(name, cmd);
+	}
+
 	public static void registerCommand(ICommand cmd) {
-		commands.put(cmd.getCommandName(), cmd);
+		registerCommand(cmd.getCommandName(), cmd);
 	}
 
 	public static void tryHandleCommand(GenericMessageEvent event) {
@@ -54,6 +59,7 @@ public class Manager {
 		registerCommand(CommandHelp.instance);
 		registerCommand(CommandListAllCommands.instance);
 		registerCommand(CommandVersion.instance);
+		registerCommand(CommandAlias.instance);
 	}
 
 }
