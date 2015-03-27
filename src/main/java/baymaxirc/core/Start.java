@@ -13,8 +13,9 @@ import org.pircbotx.PircBotX;
 public class Start {
 
 	public static void main(String[] args) throws Exception {
-		Manager.init();
 
+
+		Manager.init();
 
 		Configuration config = new Configuration.Builder()
 				.setName(Reference.name)
