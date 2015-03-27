@@ -1,4 +1,4 @@
-package baymaxirc.core.command;
+package baymaxirc.core.api.command;
 
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
