@@ -1,5 +1,6 @@
 package baymaxirc.core.command;
 
+import baymaxirc.core.api.command.ICommand;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import java.util.ArrayList;
