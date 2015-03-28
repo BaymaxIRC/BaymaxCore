@@ -1,7 +1,5 @@
 package baymaxirc.core.module;
 
-import baymaxirc.core.event.IEventHandler;
-
 /**
  * @author shadowfacts
  */
@@ -22,8 +20,8 @@ public interface IModule {
 	/**
 	 * @return The event handler.
 	 */
-	default IEventHandler getModuleEventHandler() {
-		return null;
-	}
+//	default IEventHandler getModuleEventHandler() {
+//		return null;
+//	}
 
 }

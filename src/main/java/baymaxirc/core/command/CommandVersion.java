@@ -1,10 +1,5 @@
 package baymaxirc.core.command;
 
-import baymaxirc.core.ref.Reference;
-import org.pircbotx.hooks.types.GenericMessageEvent;
-
-import java.util.ArrayList;
-
 /**
  * Gets the current version of BaymaxCore.
  * @author shadowfacts
@@ -18,13 +13,13 @@ public class CommandVersion implements ICommand {
 		return "version";
 	}
 
-	@Override
-	public void execute(ArrayList<String> args, GenericMessageEvent event) {
-		event.respond(Reference.version);
-	}
-
-	@Override
-	public void help(GenericMessageEvent event) {
-		event.respond("Gets the current version of BaymaxCore.");
-	}
+//	@Override
+//	public void execute(ArrayList<String> args, GenericMessageEvent event) {
+//		event.respond(Reference.version);
+//	}
+//
+//	@Override
+//	public void help(GenericMessageEvent event) {
+//		event.respond("Gets the current version of BaymaxCore.");
+//	}
 }

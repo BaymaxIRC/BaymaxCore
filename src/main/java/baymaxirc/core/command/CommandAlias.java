@@ -1,8 +1,5 @@
 package baymaxirc.core.command;
 
-import org.pircbotx.hooks.types.GenericMessageEvent;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,19 +18,19 @@ public class CommandAlias implements ICommand {
 		return "alias";
 	}
 
-	@Override
-	public void execute(ArrayList<String> args, GenericMessageEvent event) {
-		String newAlias = args.get(0);
-		String existingCommand = args.get(1);
-		if (!aliases.containsKey(newAlias) && !Manager.getCommandList().contains(newAlias)) {
-			aliases.put(newAlias, existingCommand);
-			Manager.registerCommand(newAlias, Manager.getCommand("?" + existingCommand));
-			event.respond(String.format("%s has been aliased to %s", newAlias, existingCommand));
-		}
-	}
+//	@Override
+//	public void execute(ArrayList<String> args, GenericMessageEvent event) {
+//		String newAlias = args.get(0);
+//		String existingCommand = args.get(1);
+//		if (!aliases.containsKey(newAlias) && !Manager.getCommandList().contains(newAlias)) {
+//			aliases.put(newAlias, existingCommand);
+//			Manager.registerCommand(newAlias, Manager.getCommand("?" + existingCommand));
+//			event.respond(String.format("%s has been aliased to %s", newAlias, existingCommand));
+//		}
+//	}
 
-	@Override
-	public void help(GenericMessageEvent event) {
-		event.respond("Alias one command to another.");
-	}
+//	@Override
+//	public void help(GenericMessageEvent event) {
+//		event.respond("Alias one command to another.");
+//	}
 }

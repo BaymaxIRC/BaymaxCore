@@ -17,12 +17,16 @@ repositories {
 	maven {
 		url = "http://maven.shadowfacts.net"
 	}
+	maven {
+		url = "http://mvn.rx14.co.uk/local/"
+	}
 }
 
 dependencies {
-	compile group: "org.pircbotx", name: "pircbotx", version: "2.0.1"
+	// compile group: "org.pircbotx", name: "pircbotx", version: "2.0.1"
 	compile group: "com.typesafe", name: "config", version: "1.3.0-M1"
-	compile group: "org.slf4j", name: "slf4j-simple", version: "1.7.10"
+	// compile group: "org.slf4j", name: "slf4j-simple", version: "1.7.10"
+	compile group: "com.github.blamevic.irc", name: "YAIL", version: "1.0.0.13"
 
 	compile group: "net.shadowfacts", name: "ShadowLib", version: "1.0.0"
 }

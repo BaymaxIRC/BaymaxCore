@@ -1,9 +1,10 @@
 package baymaxirc.core.command;
 
 import baymaxirc.core.util.MiscUtils;
-import org.pircbotx.hooks.types.GenericMessageEvent;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * @author shadowfacts
@@ -24,16 +25,16 @@ public class Manager {
 		commands.remove(name);
 	}
 
-	public static void tryHandleCommand(GenericMessageEvent event) {
-		ICommand command = getCommand(event);
-		if (command != null) {
-			ArrayList<String> args = new ArrayList<>(Arrays.asList(event.getMessage().split(" ")));
-			args.remove(0);
-			getCommand(event).execute(args, event);
-		} else {
-			event.respond(String.format("%s is not a command.", MiscUtils.getCommandFromString(event.getMessage())));
-		}
-	}
+//	public static void tryHandleCommand(GenericMessageEvent event) {
+//		ICommand command = getCommand(event);
+//		if (command != null) {
+//			ArrayList<String> args = new ArrayList<>(Arrays.asList(event.getMessage().split(" ")));
+//			args.remove(0);
+//			getCommand(event).execute(args, event);
+//		} else {
+//			event.respond(String.format("%s is not a command.", MiscUtils.getCommandFromString(event.getMessage())));
+//		}
+//	}
 
 	public static boolean isCommand(String msg) {
 		if (msg.startsWith("?")) {
@@ -49,9 +50,9 @@ public class Manager {
 		return null;
 	}
 
-	public static ICommand getCommand(GenericMessageEvent event) {
-		return getCommand(event.getMessage());
-	}
+//	public static ICommand getCommand(GenericMessageEvent event) {
+//		return getCommand(event.getMessage());
+//	}
 
 	public static Set<String> getCommandList() {
 		return commands.keySet();
