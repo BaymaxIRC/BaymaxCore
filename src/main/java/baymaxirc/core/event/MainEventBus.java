@@ -12,7 +12,7 @@ public class MainEventBus {
 	private ArrayList<IEventHandler> handlers;
 
 	public void register(IEventHandler handler) {
-		handlers.add(handler);
+		if (handler != null) handlers.add(handler);
 	}
 
 	public void post(Event event) {
