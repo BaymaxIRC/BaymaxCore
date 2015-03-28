@@ -64,6 +64,7 @@ public class CommandManager {
 		registerCommand(CommandVersion.instance);
 		registerCommand(CommandAlias.instance);
 		registerCommand(CommandRemoveAlias.instance);
+		registerCommand(CommandStop.instance);
 	}
 
 }
