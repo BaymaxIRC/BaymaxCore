@@ -20,6 +20,10 @@ public class Manager {
 		registerCommand(cmd.getCommandName(), cmd);
 	}
 
+	public static void removeCommand(String name) {
+		commands.remove(name);
+	}
+
 	public static void tryHandleCommand(GenericMessageEvent event) {
 		ICommand command = getCommand(event);
 		if (command != null) {
@@ -59,6 +63,7 @@ public class Manager {
 		registerCommand(CommandListAllCommands.instance);
 		registerCommand(CommandVersion.instance);
 		registerCommand(CommandAlias.instance);
+		registerCommand(CommandRemoveAlias.instance);
 	}
 
 }
