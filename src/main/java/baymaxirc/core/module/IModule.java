@@ -22,7 +22,7 @@ public interface IModule {
 	/**
 	 * @return The event handler.
 	 */
-	default IEventHandler getModuleEventHandler() {
+	default IEventHandler getEventHandler() {
 		return null;
 	}
 
