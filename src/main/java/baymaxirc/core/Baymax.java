@@ -1,7 +1,7 @@
 package baymaxirc.core;
 
 
-import baymaxirc.core.command.Manager;
+import baymaxirc.core.command.CommandManager;
 import baymaxirc.core.ref.Reference;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
@@ -15,7 +15,8 @@ public class Baymax {
 	public static void main(String[] args) throws Exception {
 
 
-		Manager.init();
+	public static void main(String[] args) throws Exception {
+		CommandManager.init();
 
 		Configuration config = new Configuration.Builder()
 				.setName(Reference.name)

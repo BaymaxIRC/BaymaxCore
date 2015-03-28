@@ -22,8 +22,8 @@ public class CommandListAllCommands implements ICommand {
 		StringBuilder builder = new StringBuilder();
 
 		int i = 0;
-		for (String cmdName : Manager.getCommandList()) {
-			if (i == Manager.getCommandList().size() - 1) {
+		for (String cmdName : CommandManager.getCommandList()) {
+			if (i == CommandManager.getCommandList().size() - 1) {
 				builder.append("and " + cmdName);
 			} else {
 				builder.append(cmdName + ", ");
