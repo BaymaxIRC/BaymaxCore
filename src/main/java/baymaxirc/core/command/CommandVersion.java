@@ -1,6 +1,5 @@
 package baymaxirc.core.command;
 
-import baymaxirc.core.api.command.ICommand;
 import baymaxirc.core.ref.Reference;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
