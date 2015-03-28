@@ -5,7 +5,7 @@ package baymaxirc.core.ref;
  */
 public class Reference {
 
-	public static final String version = "1.0.0";
+	public static final String version = "1.1.0";
 
 	public static final String name = "BaymaxIRC";
 	public static final String realName = "Your personal IRC companion.";
