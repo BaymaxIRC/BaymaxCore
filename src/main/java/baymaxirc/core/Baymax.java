@@ -23,6 +23,7 @@ public class Baymax {
 				.setServerHostname("irc.esper.net")
 				.addAutoJoinChannel("#shadowfacts")
 				.addListener(new MainListener())
+				.setCapEnabled(true)
 				.buildConfiguration();
 
 		PircBotX bot = new PircBotX(config);
