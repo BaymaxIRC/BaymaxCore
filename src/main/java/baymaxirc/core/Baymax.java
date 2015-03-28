@@ -10,7 +10,7 @@ import org.pircbotx.PircBotX;
  * The main class.
  * @author shadowfacts
  */
-public class Start {
+public class Baymax {
 
 	public static void main(String[] args) throws Exception {
 
