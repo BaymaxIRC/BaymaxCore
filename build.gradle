@@ -33,7 +33,7 @@ jar {
 	manifest {
 		attributes	'Implementation-Title': archivesBaseName,
 					'Implementation-Version': version,
-					'Main-Class': 'baymaxirc.core.Start'
+					'Main-Class': 'baymaxirc.core.Baymax'
 	}
 }
 
