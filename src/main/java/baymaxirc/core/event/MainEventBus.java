@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class MainEventBus {
 
-	private ArrayList<IEventHandler> handlers;
+	private ArrayList<IEventHandler> handlers = new ArrayList<>();
 
 	public void register(IEventHandler handler) {
 		if (handler != null) handlers.add(handler);
