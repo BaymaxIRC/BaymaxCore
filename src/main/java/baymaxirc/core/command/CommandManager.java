@@ -21,6 +21,8 @@ public class CommandManager {
 		registerCommand(CommandAlias.instance);
 		registerCommand(CommandRemoveAlias.instance);
 		registerCommand(CommandStop.instance);
+		registerCommand(CommandRemember.instance);
+		registerCommand(CommandForget.instance);
 
 		Baymax.eventBus.register(this);
 	}
