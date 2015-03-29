@@ -37,8 +37,19 @@ jar {
 	}
 }
 
+task sourcesJar(type: Jar, dependsOn: classes) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
+	manifest {
+		attributes	'Implementation-Title': archivesBaseName,
+					'Implementation-Version': version,
+					'Main-Class': 'baymaxirc.core.Baymax'
+	}
+}
+
 artifacts {
 	archives jar
+	archives sourcesJar
 }
 
 uploadArchives {
