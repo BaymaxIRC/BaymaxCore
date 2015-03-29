@@ -1,5 +1,6 @@
 package baymaxirc.core.command;
 
+import baymaxirc.core.Baymax;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import java.util.ArrayList;
@@ -19,8 +20,8 @@ public class CommandRemoveAlias implements ICommand {
 	@Override
 	public void execute(ArrayList<String> args, GenericMessageEvent event) {
 		String alias = args.get(0);
-		if (CommandAlias.instance.aliases.containsKey(alias) && CommandManager.getCommandList().contains(alias)) {
-			CommandManager.removeCommand(alias);
+		if (CommandAlias.instance.aliases.containsKey(alias) && Baymax.commandManager.getCommandList().contains(alias)) {
+			Baymax.commandManager.removeCommand(alias);
 			CommandAlias.instance.aliases.remove(alias);
 			event.respond(String.format("Alias %s removed.", alias));
 		} else {

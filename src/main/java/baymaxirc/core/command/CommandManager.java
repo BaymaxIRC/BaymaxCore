@@ -1,6 +1,8 @@
 package baymaxirc.core.command;
 
+import baymaxirc.core.Baymax;
 import baymaxirc.core.util.MiscUtils;
+import com.google.common.eventbus.Subscribe;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import java.util.*;
@@ -10,21 +12,33 @@ import java.util.*;
  */
 public class CommandManager {
 
-	private static Map<String, ICommand> commands = new HashMap<>();
+	private Map<String, ICommand> commands = new HashMap<>();
 
-	public static void registerCommand(String name, ICommand cmd) {
+	public CommandManager() {
+		registerCommand(CommandHelp.instance);
+		registerCommand(CommandListAllCommands.instance);
+		registerCommand(CommandVersion.instance);
+		registerCommand(CommandAlias.instance);
+		registerCommand(CommandRemoveAlias.instance);
+		registerCommand(CommandStop.instance);
+
+		Baymax.eventBus.register(this);
+	}
+
+	public void registerCommand(String name, ICommand cmd) {
 		commands.put(name, cmd);
 	}
 
-	public static void registerCommand(ICommand cmd) {
+	public void registerCommand(ICommand cmd) {
 		registerCommand(cmd.getCommandName(), cmd);
 	}
 
-	public static void removeCommand(String name) {
+	public void removeCommand(String name) {
 		commands.remove(name);
 	}
 
-	public static void tryHandleCommand(GenericMessageEvent event) {
+	@Subscribe
+	public void tryHandleCommand(GenericMessageEvent event) {
 		ICommand command = getCommand(event);
 		if (command != null) {
 			ArrayList<String> args = new ArrayList<>(Arrays.asList(event.getMessage().split(" ")));
@@ -35,36 +49,26 @@ public class CommandManager {
 		}
 	}
 
-	public static boolean isCommand(String msg) {
+	public boolean isCommand(String msg) {
 		if (msg.startsWith("?")) {
 			return true;
 		}
 		return false;
 	}
 
-	public static ICommand getCommand(String command) {
+	public ICommand getCommand(String command) {
 		if (isCommand(command)) {
 			return commands.get(MiscUtils.getCommandFromString(command));
 		}
 		return null;
 	}
 
-	public static ICommand getCommand(GenericMessageEvent event) {
+	public ICommand getCommand(GenericMessageEvent event) {
 		return getCommand(event.getMessage());
 	}
 
-	public static Set<String> getCommandList() {
+	public Set<String> getCommandList() {
 		return commands.keySet();
-	}
-
-	public static void init() {
-//		Register all the commands!
-		registerCommand(CommandHelp.instance);
-		registerCommand(CommandListAllCommands.instance);
-		registerCommand(CommandVersion.instance);
-		registerCommand(CommandAlias.instance);
-		registerCommand(CommandRemoveAlias.instance);
-		registerCommand(CommandStop.instance);
 	}
 
 }

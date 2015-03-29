@@ -1,5 +1,6 @@
 package baymaxirc.core.command;
 
+import baymaxirc.core.Baymax;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import java.util.ArrayList;
@@ -22,8 +23,8 @@ public class CommandListAllCommands implements ICommand {
 		StringBuilder builder = new StringBuilder();
 
 		int i = 0;
-		for (String cmdName : CommandManager.getCommandList()) {
-			if (i == CommandManager.getCommandList().size() - 1) {
+		for (String cmdName : Baymax.commandManager.getCommandList()) {
+			if (i == Baymax.commandManager.getCommandList().size() - 1) {
 				builder.append("and " + cmdName);
 			} else {
 				builder.append(cmdName + ", ");

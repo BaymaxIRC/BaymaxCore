@@ -12,9 +12,9 @@ import java.util.Set;
  */
 public class ModuleManager {
 
-	private static ArrayList<String> loadedModules = new ArrayList<>();
+	private ArrayList<String> loadedModules = new ArrayList<>();
 
-	public static void loadModules() {
+	public void loadModules() {
 		Reflections reflections = new Reflections();
 		Set<Class<? extends IModule>> classes = reflections.getSubTypesOf(IModule.class);
 		for (Class<? extends IModule> clazz : classes) {

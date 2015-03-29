@@ -1,6 +1,6 @@
 package baymaxirc.core.command;
 
-import baymaxirc.core.ref.Reference;
+import baymaxirc.core.Reference;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 
 import java.util.ArrayList;
