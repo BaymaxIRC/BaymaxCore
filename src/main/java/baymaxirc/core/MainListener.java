@@ -13,9 +13,4 @@ public class MainListener extends ListenerAdapter {
 //		super.onEvent(event);
 		Baymax.eventBus.post(event);
 	}
-
-//	@Override
-//	public void onGenericMessage(GenericMessageEvent event) throws Exception {
-//		Baymax.commandManager.tryHandleCommand(event);
-//	}
 }
