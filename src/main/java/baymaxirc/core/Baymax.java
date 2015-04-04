@@ -28,6 +28,8 @@ public class Baymax {
 
 	public static Logger logger = new Logger("BaymaxCore", true);
 
+	public static String commandStr;
+
 	public static void main(String[] args) throws Exception {
 		referenceConfig = ConfigFactory.load("reference.conf");
 		config = ConfigFactory.parseFile(new File("config/core.conf")).withFallback(referenceConfig);
@@ -36,6 +38,7 @@ public class Baymax {
 		String nick = config.getString("baymax.irc.nickname");
 		String realName = config.getString("baymax.irc.realName");
 		String autoJoinChannel = config.getString("baymax.irc.autoJoinChannel");
+		commandStr = config.getString("baymax.commands.commandChar");
 
 		moduleManager.loadModules();
 

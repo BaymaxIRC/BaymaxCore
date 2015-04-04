@@ -22,8 +22,8 @@ public class CommandHelp implements ICommand {
 	public void execute(ArrayList<String> args, GenericMessageEvent event) {
 		if (args.size() < 1) {
 			event.respond("You have not provided a command to retrieve help on.");
-		} else if (Baymax.commandManager.isCommand("?" + args.get(0))) {
-			Baymax.commandManager.getCommand("?" + args.get(0)).help(event);
+		} else if (Baymax.commandManager.isCommand(Baymax.commandStr + args.get(0))) {
+			Baymax.commandManager.getCommand(Baymax.commandStr + args.get(0)).help(event);
 		} else {
 			event.respond(String.format("%s is not a command.", args.get(0)));
 		}

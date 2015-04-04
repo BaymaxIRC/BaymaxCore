@@ -41,18 +41,20 @@ public class CommandManager {
 
 	@Subscribe
 	public void tryHandleCommand(GenericMessageEvent event) {
-		ICommand command = getCommand(event);
-		if (command != null) {
-			ArrayList<String> args = new ArrayList<>(Arrays.asList(event.getMessage().split(" ")));
-			args.remove(0);
-			getCommand(event).execute(args, event);
-		} else {
-			event.respond(String.format("%s is not a command.", MiscUtils.getCommandFromString(event.getMessage())));
+		if (event.getMessage().startsWith(Baymax.commandStr)) {
+			ICommand command = getCommand(event);
+			if (command != null) {
+				ArrayList<String> args = new ArrayList<>(Arrays.asList(event.getMessage().split(" ")));
+				args.remove(0);
+				getCommand(event).execute(args, event);
+			} else {
+				event.respond(String.format("%s is not a command.", MiscUtils.getCommandFromString(event.getMessage())));
+			}
 		}
 	}
 
 	public boolean isCommand(String msg) {
-		if (msg.startsWith("?")) {
+		if (msg.startsWith(Baymax.commandStr)) {
 			return true;
 		}
 		return false;

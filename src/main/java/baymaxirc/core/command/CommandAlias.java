@@ -28,7 +28,7 @@ public class CommandAlias implements ICommand {
 		String existingCommand = args.get(1);
 		if (!aliases.containsKey(newAlias) && !Baymax.commandManager.getCommandList().contains(newAlias)) {
 			aliases.put(newAlias, existingCommand);
-			Baymax.commandManager.registerCommand(newAlias, Baymax.commandManager.getCommand("?" + existingCommand));
+			Baymax.commandManager.registerCommand(newAlias, Baymax.commandManager.getCommand(Baymax.commandStr + existingCommand));
 			event.respond(String.format("%s has been aliased to %s", newAlias, existingCommand));
 		}
 	}
