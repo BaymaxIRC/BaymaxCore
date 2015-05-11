@@ -21,7 +21,7 @@ public class CommandForget implements ICommand {
 	@Override
 	public void execute(ArrayList<String> args, GenericMessageEvent event) {
 		String cmd = args.get(0);
-		if (CommandRemember.instance.remeberedCommands.containsKey(cmd)) {
+		if (CommandRemember.instance.remeberedCommands.containsKey(cmd) && Baymax.commandManager.commandExists(cmd)) {
 			CommandRemember.instance.remeberedCommands.remove(cmd);
 			Baymax.commandManager.removeCommand(cmd);
 			event.respond(String.format("Forgotten %s", cmd));

@@ -20,7 +20,7 @@ public class CommandRemoveAlias implements ICommand {
 	@Override
 	public void execute(ArrayList<String> args, GenericMessageEvent event) {
 		String alias = args.get(0);
-		if (CommandAlias.instance.aliases.containsKey(alias) && Baymax.commandManager.getCommandList().contains(alias)) {
+		if (CommandAlias.instance.aliases.containsKey(alias) && Baymax.commandManager.commandExists(alias)) {
 			Baymax.commandManager.removeCommand(alias);
 			CommandAlias.instance.aliases.remove(alias);
 			event.respond(String.format("Alias %s removed.", alias));

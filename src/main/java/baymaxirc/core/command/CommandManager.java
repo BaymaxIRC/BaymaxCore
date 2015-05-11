@@ -54,10 +54,7 @@ public class CommandManager {
 	}
 
 	public boolean isCommand(String msg) {
-		if (msg.startsWith(Baymax.commandStr)) {
-			return true;
-		}
-		return false;
+		return msg.startsWith(Baymax.commandStr);
 	}
 
 	public ICommand getCommand(String command) {
@@ -73,6 +70,10 @@ public class CommandManager {
 
 	public Set<String> getCommandList() {
 		return commands.keySet();
+	}
+
+	public boolean commandExists(String command) {
+		return commands.containsKey(command);
 	}
 
 }
