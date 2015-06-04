@@ -3,7 +3,7 @@ package baymaxirc.core.util;
 import baymaxirc.core.Baymax;
 
 /**
- * Miscellaneous utilities.
+ * Miscellaneous utilities for Baymax.
  * @author shadowfacts
  */
 public class MiscUtils {
