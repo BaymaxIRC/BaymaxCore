@@ -1,8 +1,11 @@
 package baymaxirc.core.module;
 
 import baymaxirc.core.Baymax;
+import net.shadowfacts.shadowlib.util.ClasspathUtils;
+import net.shadowfacts.shadowlib.util.FileUtils;
 import org.reflections.Reflections;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Set;
 
@@ -15,6 +18,8 @@ public class ModuleManager {
 	private ArrayList<String> loadedModules = new ArrayList<>();
 
 	public void loadModules() {
+		FileUtils.forEachInDirectory(new File("./modules/"), ClasspathUtils::addFileToClasspath);
+
 		Reflections reflections = new Reflections();
 		Set<Class<? extends IModule>> classes = reflections.getSubTypesOf(IModule.class);
 		for (Class<? extends IModule> clazz : classes) {

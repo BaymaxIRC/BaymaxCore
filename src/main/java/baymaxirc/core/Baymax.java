@@ -7,6 +7,8 @@ import com.google.common.eventbus.EventBus;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import net.shadowfacts.shadowlib.log.Logger;
+import net.shadowfacts.shadowlib.util.ClasspathUtils;
+import net.shadowfacts.shadowlib.util.FileUtils;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 
@@ -55,6 +57,5 @@ public class Baymax {
 		bot.startBot();
 
 	}
-
 
 }
