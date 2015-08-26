@@ -1,5 +1,6 @@
 package baymaxirc.core.module;
 
+import baymaxirc.core.command.CommandManager;
 import baymaxirc.core.event.IEventHandler;
 
 /**
@@ -15,9 +16,7 @@ public interface IModule {
 	/**
 	 * Register all commands here.
 	 */
-	default void registerCommands() {
-
-	}
+	default void registerCommands(CommandManager commandManager) {}
 
 	/**
 	 * @return The event handler.

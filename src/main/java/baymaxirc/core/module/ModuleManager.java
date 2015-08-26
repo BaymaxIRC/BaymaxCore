@@ -1,6 +1,7 @@
 package baymaxirc.core.module;
 
 import baymaxirc.core.Baymax;
+import baymaxirc.core.event.IEventHandler;
 import net.shadowfacts.shadowlib.util.ClasspathUtils;
 import net.shadowfacts.shadowlib.util.FileUtils;
 import org.reflections.Reflections;
@@ -32,10 +33,11 @@ public class ModuleManager {
 			}
 			if (!loadedModules.contains(instance.getName())) {
 				Baymax.logger.info("Loading %s.", instance.getName());
-				if (instance.getEventHandler() != null) {
-					Baymax.eventBus.register(instance.getEventHandler());
+				IEventHandler handler = instance.getEventHandler();
+				if (handler != null) {
+					Baymax.eventBus.register(handler);
 				}
-				instance.registerCommands();
+				instance.registerCommands(Baymax.commandManager);
 				Baymax.logger.info("Finished loading %s.", instance.getName());
 			} else {
 				Baymax.logger.error("The module %s was already loaded, skipping.", instance.getName());
