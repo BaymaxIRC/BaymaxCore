@@ -1,21 +1,16 @@
-buildscript {
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath 'net.ltgt.gradle:gradle-errorprone-plugin:latest.release'
-	}
+plugins {
+	id 'java'
+	id 'idea'
+	id 'eclipse'
+	id 'maven'
+	id 'com.github.johnrengelman.shadow' version '1.2.1'
 }
-
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
 
 repositories {
 	mavenCentral()
 	maven {
-		url = "http://maven.shadowfacts.net"
+		name "shadowfacts"
+		url "http://mvn.rx14.co.uk/shadowfacts/"
 	}
 }
 
@@ -26,8 +21,12 @@ dependencies {
 	compile group: "org.reflections", name: "reflections", version: "0.9.9"
 	compile group: "com.google.guava", name: "guava", version: "18.0"
 
-	compile group: "net.shadowfacts", name: "ShadowLib", version: "1.3.0"
+	compile group: "net.shadowfacts", name: "ShadowLib", version: "1.3.0-build-9"
 }
+
+
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 jar {
 	manifest {
@@ -50,10 +49,4 @@ task sourcesJar(type: Jar, dependsOn: classes) {
 artifacts {
 	archives jar
 	archives sourcesJar
-}
-
-uploadArchives {
-	repositories.mavenDeployer {
-		repository(url: "file:///maven/")
-	}
 }
