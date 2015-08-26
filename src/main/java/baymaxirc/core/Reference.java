@@ -5,6 +5,6 @@ package baymaxirc.core;
  */
 public class Reference {
 
-	public static final String version = "1.1.2.1";
+	public static final String version = "1.2.2";
 
 }
