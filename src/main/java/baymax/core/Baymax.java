@@ -12,7 +12,9 @@ import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import net.shadowfacts.shadowlib.util.FileUtils;
 import org.kitteh.irc.client.library.Client;
 import org.kitteh.irc.client.library.ClientBuilder;
@@ -21,20 +23,40 @@ import java.io.File;
 import java.io.IOException;
 
 /**
+ * Baymax!
+ *
  * @author shadowfacts
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Baymax {
 
+	/**
+	 * The single instance of Baymax
+	 */
 	public static Baymax instance;
 
+	/**
+	 * The configuration directory used for Baymax and all modules.
+	 * Defaults to {RUN_DIR}/config/
+	 */
 	@Getter
 	private File configDir;
+	/**
+	 * The modules directory used to search for modules
+	 * Defaults to {RUN_DIR}/modules/
+	 */
 	@Getter
 	private File modulesDir;
 
+	/**
+	 * The Baymax configuration object
+	 */
 	@Getter
 	private Config config;
 
+	/**
+	 * The KICL IRC client object
+	 */
 	private Client client;
 
 	private void launch(OptionSet options) {
@@ -101,7 +123,7 @@ public class Baymax {
 	private void printHelp() {
 //		TODO: something better than this
 		System.out.println("Options:");
-		System.out.println("\t--configDir\t\tThe directory to used to store configuration files\tDeafult: ./config/");
+		System.out.println("\t--configDir\t\tThe directory to used to store configuration files\tDeafult: ./config/"); // TODO: Localization?
 		System.out.println("\t--modulesDir\tThe directory used to search for modules\t\t\tDefault: ./modules/");
 	}
 

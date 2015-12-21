@@ -12,6 +12,8 @@ import org.kitteh.irc.lib.net.engio.mbassy.listener.Handler;
 import java.util.Optional;
 
 /**
+ * Primary Baymax event handler
+ *
  * @author shadowfacts
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

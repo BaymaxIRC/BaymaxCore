@@ -12,6 +12,8 @@ import java.io.File;
 import java.io.IOException;
 
 /**
+ * Used for managing module configs
+ *
  * @author shadowfacts
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -21,6 +23,12 @@ public class ConfigManager {
 
 	private final LogHelper log = LogHelper.getLogger("Baymax|ConfigManager");
 
+	/**
+	 * Retrieves the correct config file for the given module.
+	 * This {MODULE_NAME}.conf in the config directory.
+	 * @param module The module
+	 * @return The config object
+	 */
 	public Config getModuleConfig(Module module) {
 		String name = module.getName();
 

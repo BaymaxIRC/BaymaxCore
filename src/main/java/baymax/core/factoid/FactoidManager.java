@@ -8,6 +8,8 @@ import org.kitteh.irc.client.library.element.User;
 import java.util.*;
 
 /**
+ * Manages factoids
+ *
  * @author shadowfacts
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -19,6 +21,12 @@ public class FactoidManager {
 
 //	TODO: make factoids persist
 
+	/**
+	 * Check if a factoid is already present
+	 * @param channel The channel for the factoid
+	 * @param name The name of the factoid
+	 * @return If the factoid exists
+	 */
 	public boolean hasFactoid(String channel, String name) {
 		if (!factoids.containsKey(channel)) {
 			return false;
@@ -29,6 +37,11 @@ public class FactoidManager {
 		return factoid.isPresent();
 	}
 
+	/**
+	 * Registers a factoid
+	 * @param channel The channel for the factoid
+	 * @param factoid The factoid
+	 */
 	public void setFactoid(String channel, Factoid factoid) {
 		if (!factoids.containsKey(channel)) {
 			factoids.put(channel, new ArrayList<>());
@@ -38,6 +51,11 @@ public class FactoidManager {
 		}
 	}
 
+	/**
+	 * Unregisters a factoid
+	 * @param channel The channel for the factoid
+	 * @param name The factoid name
+	 */
 	public void removeFactoid(String channel, String name) {
 		if (factoids.containsKey(channel)) {
 			Optional<Factoid> factoid = factoids.get(channel).stream()
@@ -49,6 +67,12 @@ public class FactoidManager {
 		}
 	}
 
+	/**
+	 * Handles a factoid request
+	 * @param channel The channel the factoid was request in
+	 * @param user The user that requested the factoid
+	 * @param message The message that the user sent
+	 */
 	public void tryHandleFactoid(Channel channel, User user, String message) {
 		if (factoids.containsKey(channel.getName())) {
 			String name = message.split(" ")[0].substring(2, message.split(" ")[0].length());

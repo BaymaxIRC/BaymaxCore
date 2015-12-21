@@ -6,6 +6,9 @@ import com.typesafe.config.Config;
 import java.util.List;
 
 /**
+ * A Baymax module.
+ * Modules provide additional functionality in the form of commands and event listeners.
+ *
  * @author shadowfacts
  */
 public interface Module {

@@ -8,6 +8,8 @@ import org.kitteh.irc.client.library.element.User;
 import java.util.Optional;
 
 /**
+ * This command lists all commands currently registered with Baymax
+ *
  * @author shadowfacts
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Basic module that only requires {@link Module#getName()} to be implemented
+ *
  * @author shadowfacts
  */
 public abstract class BaseModule implements Module {

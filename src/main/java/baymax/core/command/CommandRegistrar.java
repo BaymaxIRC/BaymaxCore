@@ -1,6 +1,9 @@
 package baymax.core.command;
 
 /**
+ * A command registrar is anything that can be used to regidster commands.
+ * This is normally {@link CommandManager#instance}
+ *
  * @author shadowfacts
  */
 public interface CommandRegistrar {

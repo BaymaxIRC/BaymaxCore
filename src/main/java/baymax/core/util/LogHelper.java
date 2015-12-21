@@ -4,6 +4,8 @@ import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 /**
+ * Helper class for dealing with {@link java.util.logging}
+ *
  * @author shadowfacts
  */
 public class LogHelper {

@@ -8,6 +8,8 @@ import org.kitteh.irc.client.library.element.User;
 import java.util.Optional;
 
 /**
+ * This command is used to call {@link Command#handleHelpRequest(User)} on commands for help info
+ *
  * @author shadowfacts
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

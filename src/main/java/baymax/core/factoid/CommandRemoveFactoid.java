@@ -6,15 +6,16 @@ import baymax.core.util.ChannelUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.kitteh.irc.client.library.element.Channel;
-import org.kitteh.irc.client.library.element.ChannelMode;
 import org.kitteh.irc.client.library.element.ChannelUserMode;
 import org.kitteh.irc.client.library.element.User;
-import org.kitteh.irc.client.library.util.Pair;
 
 import java.util.Optional;
 import java.util.Set;
 
 /**
+ * Command to remove a factoid from the {@link FactoidManager#instance}
+ * Only executable if the user is above the minimum level specified in the configuration file
+ *
  * @author shadowfacts
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)

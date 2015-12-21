@@ -20,6 +20,8 @@ import java.util.jar.JarInputStream;
 import java.util.jar.Manifest;
 
 /**
+ * Manages the modules
+ *
  * @author shadowfacts
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
@@ -33,10 +35,17 @@ public class ModuleManager {
 
 	private final LogHelper log = LogHelper.getLogger("Baymax|ModuleManager");
 
+	/**
+	 * A map of all the registered modules in the form of
+	 * Name -> Module instance
+	 */
 	@Getter
 	private Map<String, Module> modules = new HashMap<>();
 
-	public void loadModules() {
+	/**
+	 * Loads and registers all modules from the .jar files in the modules directory
+	 */
+	public void loadModules() { // TODO: test this!
 		File[] moduleFiles = Baymax.instance.getModulesDir().listFiles();
 		if (moduleFiles != null) {
 			Arrays.stream(moduleFiles)
@@ -83,6 +92,10 @@ public class ModuleManager {
 		}
 	}
 
+	/**
+	 * Registers all module commands
+	 * @param registrar The command registrar to pass to the modules
+	 */
 	public void registerCommands(CommandRegistrar registrar) {
 		modules.values().stream()
 				.forEach(module -> module.registerCommands(registrar));
