@@ -4,6 +4,8 @@ import baymax.core.command.CommandHelp;
 import baymax.core.command.CommandListCommands;
 import baymax.core.command.CommandManager;
 import baymax.core.command.CommandRegistrar;
+import baymax.core.command.alias.CommandAddAlias;
+import baymax.core.command.alias.CommandRemoveAlias;
 import baymax.core.event.BaymaxEventHandler;
 import baymax.core.factoid.CommandRemoveFactoid;
 import baymax.core.factoid.CommandSetFactoid;
@@ -57,6 +59,7 @@ public class Baymax {
 	/**
 	 * The KICL IRC client object
 	 */
+	@Getter
 	private Client client;
 
 	private void launch(OptionSet options) {
@@ -105,6 +108,9 @@ public class Baymax {
 
 		registrar.registerCommand(CommandSetFactoid.instance);
 		registrar.registerCommand(CommandRemoveFactoid.instance);
+
+		registrar.registerCommand(CommandAddAlias.instance);
+		registrar.registerCommand(CommandRemoveAlias.instance);
 	}
 
 	private void loadBaymaxConfig() {
